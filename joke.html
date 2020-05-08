@@ -92,6 +92,7 @@
             $('.audioattr').trigger('play');
             var timeStamp = 0
             setInterval(() => {
+                console.log('手机端',IsPC())
                 timeStamp += 1
                 console.log(timeStamp)
                 if (timeStamp >= 98) {
