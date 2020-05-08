@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/popup.css">
+	<title>宗雯</title>
+	<meta name="description" content="宗雯" />
+	<meta name="keywords" content="宗雯" />
+	<meta name="author" content="梁少林" />
+	<meta name="Copyright" content="宗雯" />
+	<link rel="stylesheet" type="text/css" href="css/demo.css" />
+	<link rel="stylesheet" type="text/css" href="css/dialog.css" />
+	<link rel="stylesheet" type="text/css" href="css/dialog-donna.css" />
+	<script src="js/modernizr.custom.js"></script>
+</head>
+
+<body>
+	<button data-dialog="somedialog" class="trigger" style="width: 0;height: 0;opacity: 0;display: none;"></button>
+	<div id="somedialog" class="dialog" style="z-index: 9999999;">
+		<div class="dialog__overlay"></div>
+		<div class="dialog__content">
+			<h2><strong>所有的英文字母都可以按下哦</strong></h2>
+			<div><button class="action" data-dialog-close>Close</button></div>
+		</div>
+	</div>
+	<audio controls autoplay loop class="audioattr" style='display:none;'>
+		<source src="./img/Nigel Silin - Sakura Tears.mp3">
+	</audio>
+	<div class="popup-container">
+		<div class="img-flex"></div>
+	</div>
+</body>
+<script src="./js/classie.js"></script>
+<script src="./js/dialogFx.js"></script>
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="./js/fragment.js"></script>
+<script type="text/javascript">
+	$(function () {
+
+		var fragmentConfig = {
+			container: '.img-flex', //显示容器
+			line: 15, //多少行
+			column: 28, //多少列
+			width: 1000, //显示容器的宽度
+			animeTime: 9000, //最长动画时间,图片的取值将在 animeTime*0.33 + animeTime*0.66之前取值 
+			img: 'img/smile.jpg' //图片路径
+		};
+		setTimeout(function () {
+			fragmentImg(fragmentConfig);
+		}, 1000)
+		$(document).keyup(function (event) {
+			console.log(event.keyCode)
+			$('.img-flex').empty()
+			if (event.keyCode === 81) {
+				fragmentConfig.img = 'img/smile.jpg'
+				fragmentImg(fragmentConfig);
+			}
+			if (event.keyCode === 87) {
+				fragmentConfig.img = 'img/swim.jpg'
+				fragmentImg(fragmentConfig);
+			}
+			if (event.keyCode === 69) {
+				fragmentConfig.img = 'img/princess.jpg'
+				fragmentImg(fragmentConfig);
+			}
+			if (event.keyCode === 82) {
+				fragmentConfig.img = 'img/longleg.jpg'
+				fragmentImg(fragmentConfig);
+			}
+			if (event.keyCode === 84) {
+				fragmentConfig.img = 'img/sweet.jpg'
+				fragmentImg(fragmentConfig);
+			}
+			if (event.keyCode === 89) {
+				fragmentConfig.img = 'img/shortHair.jpg'
+				fragmentImg(fragmentConfig);
+			}
+			if (event.keyCode === 85) {
+				fragmentConfig.img = 'img/white.jpg'
+				fragmentImg(fragmentConfig);
+			}
+			if (event.keyCode === 73) {
+				fragmentConfig.img = 'img/glass.jpg'
+				fragmentImg(fragmentConfig);
+			}
+			if (event.keyCode === 79) {
+				fragmentConfig.img = 'img/redDress.jpg'
+				fragmentImg(fragmentConfig);
+			}
+			if (event.keyCode === 80) {
+				fragmentConfig.img = 'img/scissors.jpg'
+				fragmentImg(fragmentConfig);
+			}
+			if (event.keyCode === 65) {
+				fragmentConfig.img = 'img/shuangmawei.jpg'
+				fragmentImg(fragmentConfig);
+			}
+			if (event.keyCode === 83) {
+				fragmentConfig.img = 'img/ego.jpg'
+				fragmentImg(fragmentConfig);
+			}
+			if (event.keyCode === 68) { //d
+				fragmentConfig.img = 'img/books.jpg'
+				fragmentImg(fragmentConfig);
+			}
+			if (event.keyCode === 70) { //f
+				fragmentConfig.img = 'img/cure.jpg'
+				fragmentImg(fragmentConfig);
+			}
+			if (event.keyCode === 71) { //g
+				fragmentConfig.img = 'img/road.jpg'
+				fragmentImg(fragmentConfig);
+			}
+			if (event.keyCode === 72) { //h
+				fragmentConfig.img = 'img/cars.jpg'
+				fragmentImg(fragmentConfig);
+			}
+			if (event.keyCode === 74) { //j
+				fragmentConfig.img = 'img/guitar.jpg'
+				fragmentImg(fragmentConfig);
+			}
+			if (event.keyCode === 75) { //k
+				fragmentConfig.img = 'img/reading.jpg'
+				fragmentImg(fragmentConfig);
+			}
+			if (event.keyCode === 90) { //z
+				fragmentConfig.img = 'img/black.jpg'
+				fragmentImg(fragmentConfig);
+			}
+			if (event.keyCode === 88) { //x
+				fragmentConfig.img = 'img/purples.jpg'
+				fragmentImg(fragmentConfig);
+			}
+			if (event.keyCode === 67) { //c
+				fragmentConfig.img = 'img/redPrincess.jpg'
+				fragmentImg(fragmentConfig);
+			}
+			if (event.keyCode === 86) { //v
+				fragmentConfig.img = 'img/redCrown.jpg'
+				fragmentImg(fragmentConfig);
+			}
+			if (event.keyCode === 66) { //b
+				fragmentConfig.img = 'img/shallow.jpg'
+				fragmentImg(fragmentConfig);
+			}
+			if (event.keyCode === 78) { //n
+				fragmentConfig.img = 'img/cool.jpg'
+				fragmentImg(fragmentConfig);
+			}
+			if (event.keyCode === 76) { //n
+				fragmentConfig.img = 'img/soCool.jpg'
+				fragmentImg(fragmentConfig);
+			}
+			if (event.keyCode === 77) { //m
+				fragmentConfig.img = 'img/tall.jpg'
+				fragmentImg(fragmentConfig);
+			}
+		});
+		setTimeout(() => {
+			$('.trigger').trigger('click')
+		}, 1000);
+		var dlgtrigger = document.querySelector('[data-dialog]'),
+			somedialog = document.getElementById(dlgtrigger.getAttribute('data-dialog')),
+			dlg = new DialogFx(somedialog);
+		dlgtrigger.addEventListener('click', dlg.toggle.bind(dlg));
+	});
+
+</script>
+
+</html>
