@@ -75,6 +75,20 @@
     <script type="text/javascript" src="js/functions.js"></script>
     <script>
         $(function () {
+            function IsPC() {
+                var userAgentInfo = navigator.userAgent;
+                var Agents = ["Android", "iPhone",
+                    "SymbianOS", "Windows Phone",
+                    "iPad", "iPod"];
+                var flag = true;
+                for (var v = 0; v < Agents.length; v++) {
+                    if (userAgentInfo.indexOf(Agents[v]) > 0) {
+                        flag = false;
+                        break;
+                    }
+                }
+                return flag;
+            }
             $('.audioattr').trigger('play');
             var timeStamp = 0
             setInterval(() => {
@@ -87,7 +101,7 @@
                     $('.video').trigger('play');
                 }
                 if (timeStamp >= 104) {
-                    window.location.href = 'gallery.html'
+                    window.location.href = IsPC?'gallery.html':'dispersion.html'
                 }
             }, 1000);
             var together = new Date();

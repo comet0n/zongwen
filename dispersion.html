@@ -37,7 +37,9 @@
 <script type="text/javascript" src="./js/fragment.js"></script>
 <script type="text/javascript">
 	$(function () {
-
+		var imgList=['img/smile.jpg','img/swim.jpg','img/princess.jpg','img/longleg.jpg','img/sweet.jpg','img/shortHair.jpg','img/white.jpg','img/glass.jpg','img/redDress.jpg','img/scissors.jpg','img/shuangmawei.jpg','img/ego.jpg'
+		,'img/books.jpg','img/cure.jpg','img/road.jpg','img/cars.jpg','img/guitar.jpg','img/reading.jpg','img/black.jpg','img/purples.jpg','img/redPrincess.jpg','img/redCrown.jpg',
+			'img/shallow.jpg','img/cool.jpg','img/soCool.jpg','img/tall.jpg','img/6 爱你的人已星夜兼程走在来路.jpg'];
 		var fragmentConfig = {
 			container: '.img-flex', //显示容器
 			line: 15, //多少行
@@ -48,118 +50,142 @@
 		};
 		setTimeout(function () {
 			fragmentImg(fragmentConfig);
-		}, 1000)
+		}, 1000);
 		$(document).keyup(function (event) {
-			console.log(event.keyCode)
+			console.log(event.keyCode,imgList.length)
 			$('.img-flex').empty()
 			if (event.keyCode === 81) {
-				fragmentConfig.img = 'img/smile.jpg'
+				fragmentConfig.img =imgList[0]
 				fragmentImg(fragmentConfig);
 			}
 			if (event.keyCode === 87) {
-				fragmentConfig.img = 'img/swim.jpg'
+				fragmentConfig.img =imgList[1]
 				fragmentImg(fragmentConfig);
 			}
 			if (event.keyCode === 69) {
-				fragmentConfig.img = 'img/princess.jpg'
+				fragmentConfig.img = imgList[2]
 				fragmentImg(fragmentConfig);
 			}
 			if (event.keyCode === 82) {
-				fragmentConfig.img = 'img/longleg.jpg'
+				fragmentConfig.img =imgList[3]
 				fragmentImg(fragmentConfig);
 			}
 			if (event.keyCode === 84) {
-				fragmentConfig.img = 'img/sweet.jpg'
+				fragmentConfig.img =imgList[4]
 				fragmentImg(fragmentConfig);
 			}
 			if (event.keyCode === 89) {
-				fragmentConfig.img = 'img/shortHair.jpg'
+				fragmentConfig.img = imgList[5]
 				fragmentImg(fragmentConfig);
 			}
 			if (event.keyCode === 85) {
-				fragmentConfig.img = 'img/white.jpg'
+				fragmentConfig.img =imgList[6]
 				fragmentImg(fragmentConfig);
 			}
 			if (event.keyCode === 73) {
-				fragmentConfig.img = 'img/glass.jpg'
+				fragmentConfig.img =imgList[7]
 				fragmentImg(fragmentConfig);
 			}
 			if (event.keyCode === 79) {
-				fragmentConfig.img = 'img/redDress.jpg'
+				fragmentConfig.img = imgList[8]
 				fragmentImg(fragmentConfig);
 			}
 			if (event.keyCode === 80) {
-				fragmentConfig.img = 'img/scissors.jpg'
+				fragmentConfig.img =imgList[9]
 				fragmentImg(fragmentConfig);
 			}
 			if (event.keyCode === 65) {
-				fragmentConfig.img = 'img/shuangmawei.jpg'
+				fragmentConfig.img =imgList[10]
 				fragmentImg(fragmentConfig);
 			}
 			if (event.keyCode === 83) {
-				fragmentConfig.img = 'img/ego.jpg'
+				fragmentConfig.img =imgList[11]
 				fragmentImg(fragmentConfig);
 			}
 			if (event.keyCode === 68) { //d
-				fragmentConfig.img = 'img/books.jpg'
+				fragmentConfig.img =imgList[12]
 				fragmentImg(fragmentConfig);
 			}
 			if (event.keyCode === 70) { //f
-				fragmentConfig.img = 'img/cure.jpg'
+				fragmentConfig.img = imgList[13]
 				fragmentImg(fragmentConfig);
 			}
 			if (event.keyCode === 71) { //g
-				fragmentConfig.img = 'img/road.jpg'
+				fragmentConfig.img = imgList[14]
 				fragmentImg(fragmentConfig);
 			}
 			if (event.keyCode === 72) { //h
-				fragmentConfig.img = 'img/cars.jpg'
+				fragmentConfig.img =imgList[15]
 				fragmentImg(fragmentConfig);
 			}
 			if (event.keyCode === 74) { //j
-				fragmentConfig.img = 'img/guitar.jpg'
+				fragmentConfig.img = imgList[16]
 				fragmentImg(fragmentConfig);
 			}
 			if (event.keyCode === 75) { //k
-				fragmentConfig.img = 'img/reading.jpg'
+				fragmentConfig.img =imgList[17]
 				fragmentImg(fragmentConfig);
 			}
 			if (event.keyCode === 90) { //z
-				fragmentConfig.img = 'img/black.jpg'
+				fragmentConfig.img = imgList[18]
 				fragmentImg(fragmentConfig);
 			}
 			if (event.keyCode === 88) { //x
-				fragmentConfig.img = 'img/purples.jpg'
+				fragmentConfig.img = imgList[19]
 				fragmentImg(fragmentConfig);
 			}
 			if (event.keyCode === 67) { //c
-				fragmentConfig.img = 'img/redPrincess.jpg'
+				fragmentConfig.img = imgList[20]
 				fragmentImg(fragmentConfig);
 			}
 			if (event.keyCode === 86) { //v
-				fragmentConfig.img = 'img/redCrown.jpg'
+				fragmentConfig.img =imgList[22]
 				fragmentImg(fragmentConfig);
 			}
 			if (event.keyCode === 66) { //b
-				fragmentConfig.img = 'img/shallow.jpg'
+				fragmentConfig.img = imgList[23]
 				fragmentImg(fragmentConfig);
 			}
 			if (event.keyCode === 78) { //n
-				fragmentConfig.img = 'img/cool.jpg'
+				fragmentConfig.img =imgList[24]
 				fragmentImg(fragmentConfig);
 			}
 			if (event.keyCode === 76) { //n
-				fragmentConfig.img = 'img/soCool.jpg'
+				fragmentConfig.img =imgList[25]
 				fragmentImg(fragmentConfig);
 			}
 			if (event.keyCode === 77) { //m
-				fragmentConfig.img = 'img/tall.jpg'
+				fragmentConfig.img =imgList[26]
 				fragmentImg(fragmentConfig);
 			}
 		});
 		setTimeout(() => {
 			$('.trigger').trigger('click')
 		}, 1000);
+		var timeNum=0;
+		if(!IsPC()){
+            setInterval(function () {
+                console.log()
+                timeNum+=1
+                $('.img-flex').empty()
+                fragmentConfig.img =imgList[timeNum]
+                fragmentImg(fragmentConfig);
+            },10000);
+		}
+        function IsPC() {
+            var userAgentInfo = navigator.userAgent;
+            var Agents = ["Android", "iPhone",
+                "SymbianOS", "Windows Phone",
+                "iPad", "iPod"];
+            var flag = true;
+            for (var v = 0; v < Agents.length; v++) {
+                if (userAgentInfo.indexOf(Agents[v]) > 0) {
+                    flag = false;
+                    break;
+                }
+            }
+            return flag;
+        }
 		var dlgtrigger = document.querySelector('[data-dialog]'),
 			somedialog = document.getElementById(dlgtrigger.getAttribute('data-dialog')),
 			dlg = new DialogFx(somedialog);
